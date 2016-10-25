@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = (stylelintResults) => {
   function tcEscape(message) {
     return message
