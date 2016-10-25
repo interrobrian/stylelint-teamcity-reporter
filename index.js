@@ -13,7 +13,7 @@ module.exports = (stylelintResults) => {
 
   function formatTeamCityMessage(name, properties) {
     let message = `##teamcity[${tcEscape(name)}`;
-    for (key in properties)
+    for (const key in properties)
     {
       message += ` ${key}='${tcEscape(properties[key])}'`;
     }
