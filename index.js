@@ -22,21 +22,24 @@ module.exports = (stylelintResults) => {
   let resultString = "";
   stylelintResults
     .forEach(fileResults => {
-      resultString += formatTeamCityMessage("testSuiteStarted", { name: fileResults.source });
-      fileResults.warnings.forEach(warning => {
-        const testName = `(${warning.line}, ${warning.column}) ${warning.rule}`;
-        const testMessage = warning.text;
-        if(fileResults.ignored) {
-          resultString += formatTeamCityMessage("testIgnored", { name: testName, message: testMessage });
-        } else {
-          resultString += formatTeamCityMessage("testStarted", { name: testName });
-          if (warning.severity === "error") {
-            resultString += formatTeamCityMessage("testFailed", { name: testName, message: testMessage });
+      if(fileResults.errored) {
+        const testSuiteName = `stylelint: ${fileResults.source}`;
+        resultString += formatTeamCityMessage("testSuiteStarted", { name: testSuiteName });
+        fileResults.warnings.forEach(warning => {
+          const testName = `(${warning.line}, ${warning.column}) ${warning.rule}`;
+          const testMessage = warning.text;
+          if(fileResults.ignored) {
+            resultString += formatTeamCityMessage("testIgnored", { name: testName, message: testMessage });
+          } else {
+            resultString += formatTeamCityMessage("testStarted", { name: testName });
+            if (warning.severity === "error") {
+              resultString += formatTeamCityMessage("testFailed", { name: testName, message: testMessage });
+            }
+            resultString += formatTeamCityMessage("testFinished", { name: testName });
           }
-          resultString += formatTeamCityMessage("testFinished", { name: testName });
-        }
-      });
-      resultString += formatTeamCityMessage("testSuiteFinished", { name: fileResults.source });
+        });
+        resultString += formatTeamCityMessage("testSuiteFinished", { name: testSuiteName });
+      }
     });
     return resultString;
 }
