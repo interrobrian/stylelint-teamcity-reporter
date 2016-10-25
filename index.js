@@ -28,8 +28,8 @@ module.exports = (stylelintResults) => {
         const testSuiteName = `stylelint: ${fileResults.source}`;
         resultString += formatTeamCityMessage("testSuiteStarted", { name: testSuiteName });
         fileResults.warnings.forEach(warning => {
-          const testName = `(${warning.line}, ${warning.column}) ${warning.rule}`;
-          const testMessage = warning.text;
+          const testName = `(${warning.line}, ${warning.column}) ${warning.text}`;
+          const testMessage = `[${warning.rule}] ${warning.text}`;
           if(fileResults.ignored) {
             resultString += formatTeamCityMessage("testIgnored", { name: testName, message: testMessage });
           } else {
