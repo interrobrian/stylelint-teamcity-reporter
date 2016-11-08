@@ -1,5 +1,5 @@
 {
-  "name": "stylelint-teamcity-formatter",
+  "name": "stylelint-teamcity-reporter",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bjspencer/stylelint-teamcity-formatter.git"
+    "url": "git+https://github.com/bjspencer/stylelint-teamcity-reporter.git"
   },
   "keywords": [
     "stylelint",
@@ -19,9 +19,9 @@
   "author": "Brian Spencer",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bjspencer/stylelint-teamcity-formatter/issues"
+    "url": "https://github.com/bjspencer/stylelint-teamcity-reporter/issues"
   },
-  "homepage": "https://github.com/bjspencer/stylelint-teamcity-formatter#readme",
+  "homepage": "https://github.com/bjspencer/stylelint-teamcity-reporter#readme",
   "devDependencies": {},
   "dependencies": {}
 }
