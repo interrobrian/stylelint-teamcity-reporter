@@ -1,6 +1,6 @@
 {
   "name": "stylelint-teamcity-reporter",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,7 @@
     "reporter"
   ],
   "author": "Brian Spencer",
+  "contributors": ["Marko Binic"],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bjspencer/stylelint-teamcity-reporter/issues"
