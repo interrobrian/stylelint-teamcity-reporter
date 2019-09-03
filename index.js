@@ -1,5 +1,7 @@
 "use strict";
 
+const fs = require("fs");
+
 module.exports = (stylelintResults) => {
   function tcEscape(message) {
     if(!message.replace) {
